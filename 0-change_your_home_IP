@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+cp /etc/hosts /etc/hosts.new
+sed -i '/[[:space:]]localhost$/d' /etc/hosts.new
+sed -i '/[[:space:]]facebook\.com$/d' /etc/hosts.new
+echo "127.0.0.2 localhost" >> /etc/hosts.new
+echo "8.8.8.8 facebook.com" >> /etc/hosts.new
+cat /etc/hosts.new > /etc/hosts
+rm /etc/hosts.new
